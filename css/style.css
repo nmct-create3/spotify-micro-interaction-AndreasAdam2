@@ -1,5 +1,6 @@
-@import "https://unpkg.com/open-props/easings.min.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import"https://unpkg.com/open-props/easings.min.css";
+@import"https://unpkg.com/open-props/animations.min.css";
 :root {
     /* spotify colors*/
     --spotify-green: #1ed760;
@@ -16,6 +17,8 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 1rem;
+    font-family: 'Manrope';
+
 }
 
 img,
@@ -27,17 +30,38 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    background-color: var(--spotify-black);
+    height: 100%;
+    
+}
 
 /* center everything */
 
-body {}
+body {
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+
 
 /*
     Object: Button reset
     ---
     Small button reset object
 */
+
 
 .button-reset {
     border: none;
@@ -66,9 +90,86 @@ body {}
     Toggle button
 */
 
+.toggle__icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.5s ease-in-out;
+    /* animation: var(--animation-spin) 0.4s; */
+}
+
+.icon--check{
+    color: var(--spotify-green);
+    grid-row: 1;
+    grid-column: 1;
+    opacity: 0;
+  
+}
+
+.icon--add{
+    grid-row: 1;
+    grid-column: 1;
+
+}       
+
+.added .icon--add{
+    opacity: 0;
+    rotate: 90deg;
+}
+
+.added .icon--check{
+    opacity: 1;
+
+}
+
 /*
     Album
 */
+
+.album {
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--spotify-darkGrey);
+    color: var(--spotify-white);
+    border-radius: 0.5rem;
+    max-width: 400px;
+}
+
+
+.album__header {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: auto auto;   
+    margin-top: 1rem;                   
+}
+
+.album__img {
+    border-radius: 0.5rem;
+}
+
+.album__title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.album__artist{
+    color: var(--spotify-grey);
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.album__action {
+    grid-column: 2;
+    grid-row: 1 / span 2; 
+    align-self: center;    
+    justify-self: center;  
+    display: grid;
+}
+
+
+
+
+
+
 
 /*
     Utitlities
